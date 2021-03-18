@@ -1,6 +1,7 @@
 import React from 'react';
 import style from 'styled-components'
-import Produtos  from './components/Produtos.js'
+import Banner from './components/Banner'
+// import Produtos  from './components/Produtos.js'
 
 const listaDeProdutos = [
   {
@@ -40,9 +41,10 @@ const listaDeProdutos = [
 export default function App() {
   return (
     <div className="App">
-    <Produtos
+    {/* <Produtos
 
-    />
+    /> */}
+    <Banner/>
     </div>
   );
 }
