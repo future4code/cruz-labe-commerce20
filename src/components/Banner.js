@@ -35,8 +35,6 @@ import Logo from  '../assets/img/logo.png'
     width: 30vw;
     `
 
-
-
 export default class Banner extends React.Component {
 
 

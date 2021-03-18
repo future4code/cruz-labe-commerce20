@@ -1,50 +1,35 @@
 import React from 'react';
 import style from 'styled-components'
 import Banner from './components/Banner'
-// import Produtos  from './components/Produtos.js'
+import Produtos  from './components/Produtos.js'
+import Carrinho  from './components/Produtos.js'
 
-const listaDeProdutos = [
-  {
-  id: 1,
-  nomeProduto: 'Marte',
-  descricao: 'Lorem Ipson bla bla',
-  precoProduto: 30000,
-  imagem: 'https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'
-  
-},
-{
-  id: 2,
-  nomeProduto: 'Venus',
-  descricao: 'Lorem Ipson bla bla',
-  precoProduto: 20000,
-  imagem: ''
-  
-},
-{
-  id: 3,
-  nomeProduto: 'Jupiter',
-  descricao: 'Lorem Ipson bla bla',
-  precoProduto: 10000,
-  imagem: ''
-  
-},
-{
-  id: 4,
-  nomeProduto: 'Saturno',
-  descricao: 'Lorem Ipson bla bla',
-  precoProduto: 100000,
-  imagem: ''
-  
-  },
-]
+
+const Container = style.div`
+  width: 70vw;
+  margin: 0 auto;
+  overflow-y: hidden;
+  display: flex;
+`
+const Coluna1 = style.div`
+  flex: 2;
+ `
+const Coluna2 = style.div`
+  flex: 1;
+  background-color: green;
+`
 
 export default function App() {
   return (
-    <div className="App">
-    {/* <Produtos
+    <div>
+        <Banner/>
+        <Container>
+          <Coluna1><Produtos/></Coluna1>
+          <Coluna2>Carrinho</Coluna2>
 
-    /> */}
-    <Banner/>
+
+          
+        </Container>
     </div>
   );
 }
