@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import style from 'styled-components'
+import Produtos  from './components/Produtos.js'
 
-function App() {
+const listaDeProdutos = [
+  {
+  id: 1,
+  nomeProduto: 'Marte',
+  descricao: 'Lorem Ipson bla bla',
+  precoProduto: 30000,
+  imagem: 'https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'
+  
+},
+{
+  id: 2,
+  nomeProduto: 'Venus',
+  descricao: 'Lorem Ipson bla bla',
+  precoProduto: 20000,
+  imagem: ''
+  
+},
+{
+  id: 3,
+  nomeProduto: 'Jupiter',
+  descricao: 'Lorem Ipson bla bla',
+  precoProduto: 10000,
+  imagem: ''
+  
+},
+{
+  id: 4,
+  nomeProduto: 'Saturno',
+  descricao: 'Lorem Ipson bla bla',
+  precoProduto: 100000,
+  imagem: ''
+  
+  },
+]
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Produtos
+
+    />
     </div>
   );
 }
 
-export default App;
+
