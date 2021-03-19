@@ -1,9 +1,11 @@
 import React from 'react'
 import style from 'styled-components'
 
+// Estilização container principal está inline
+
 const DivBox = style.div`
     height: 500px;
-    width: 41%;
+    width: 43%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 30px;
@@ -109,7 +111,7 @@ export default class Produtos extends React.Component{
         
         return (
 
-        <div style={{display:'flex', justifyContent: 'Space-around', flexFlow: 'row wrap'}}>
+        <div style={{display:'flex', justifyContent: 'space-between', flexFlow: 'row wrap', marginRight: '50px', marginLeft: '1px'}}>
            
             {listaDeProdutos.map(produto => (
                 <DivBox>

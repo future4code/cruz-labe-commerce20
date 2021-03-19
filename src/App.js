@@ -3,6 +3,7 @@ import style from 'styled-components'
 import Banner from './components/Banner'
 import Produtos  from './components/Produtos.js'
 import Carrinho  from './components/Carrinho.js'
+import Filtro from './components/Filtro.js'
 
 
 const Container = style.div`
@@ -12,7 +13,7 @@ const Container = style.div`
   display: flex;
 `
 const Coluna1 = style.div`
-  flex: 2;
+  flex: 2.5;
   padding-right:12px;
  `
 const Coluna2 = style.div`
@@ -24,12 +25,10 @@ export default function App() {
   return (
     <div>
         <Banner/>
+        <Container><Filtro/></Container>
         <Container>
           <Coluna1><Produtos/></Coluna1>
           <Coluna2><Carrinho/></Coluna2>
-
-
-          
         </Container>
     </div>
   );
