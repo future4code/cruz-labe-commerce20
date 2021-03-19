@@ -57,7 +57,6 @@ const Botao = style.button`
     border-radius: 35px;
     text-align: center;
     font: normal normal bold 16px/24px Raleway;
-    letter-spacing: 0px;
     color: #3A1A68;
     background-color: white;
     padding: 10px;
@@ -114,13 +113,13 @@ export default class Produtos extends React.Component{
            
             {listaDeProdutos.map(produto => (
                 <DivBox>
-                <Imagem src='https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'/>
-                <Titulo>Marte</Titulo>
-                <Linha/>
-                <Descricao>Lorem ipsum dolor sit amet, consectetur adipisicing elit</Descricao>
-                <Preco>R$999</Preco>
-                <Botao>Adicionar ao carrinho</Botao>              
-            </DivBox>
+                    <Imagem src='https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'/>
+                    <Titulo>Marte</Titulo>
+                    <Linha/>
+                    <Descricao>Lorem ipsum dolor sit amet, consectetur adipisicing elit</Descricao>
+                    <Preco>R$999</Preco>
+                    <Botao>Adicionar ao carrinho</Botao>              
+                </DivBox>
             ))} 
 
         </div>
