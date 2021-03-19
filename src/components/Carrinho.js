@@ -4,7 +4,7 @@ import lixo from '../assets/img/lixo.png'
 
 const DivCarrinho = style.div`
     min-height: 390px;
-    width: 90%; 
+    width: 100%; 
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 1px 3px 6px #0000003B;
     border-radius: 30px;
