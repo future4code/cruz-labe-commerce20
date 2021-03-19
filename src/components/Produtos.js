@@ -64,63 +64,22 @@ const Botao = style.button`
     padding: 10px;
 
 `
-
-
-const listaDeProdutos = [
-    {
-    id: 1,
-    nomeProduto: 'Marte',
-    descricao: 'Lorem Ipson bla bla',
-    precoProduto: 30000,
-    imagem: 'https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'
-    
-  },
-  {
-    id: 2,
-    nomeProduto: 'Venus',
-    descricao: 'Lorem Ipson bla bla',
-    precoProduto: 20000,
-    imagem: 'https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'
-    
-  },
-  {
-    id: 3,
-    nomeProduto: 'Jupiter',
-    descricao: 'Lorem Ipson bla bla',
-    precoProduto: 10000,
-    imagem: 'https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'
-    
-  },
-  {
-    id: 4,
-    nomeProduto: 'Saturno',
-    descricao: 'Lorem Ipson bla bla',
-    precoProduto: 100000,
-    imagem: 'https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'
-    
-    },
-  ]
-
-
-
-
-
 export default class Produtos extends React.Component{
 
     render(){
-        
+    //  const  produto = this.props.produto  
         return (
 
         <div style={{display:'flex', justifyContent: 'space-between', flexFlow: 'row wrap', marginRight: '50px', marginLeft: '1px'}}>
            
-            {listaDeProdutos.map(produto => (
+            {this.props.planeta.map(produto => (
                 <DivBox>
-                    <Imagem src='https://www.galeirosdosul.com.br/images/Honda_CB750_K0_1969.jpg'/>
-                    <Titulo>Marte</Titulo>
+                    <Imagem src={produto.imagem}/>
+                    <Titulo>{produto.nomeProduto}</Titulo>
                     <Linha/>
                     <Descricao>Lorem ipsum dolor sit amet, consectetur adipisicing elit</Descricao>
-                    <Preco>R$999</Preco>
-                    <Botao>Adicionar ao carrinho</Botao>              
+                    <Preco>{produto.precoProduto}</Preco>
+                    <Botao onClick={() => this.props.AddProdutoNoCarrinho(produto.id)}>Adicionar ao carrinho</Botao>              
                 </DivBox>
             ))} 
 
