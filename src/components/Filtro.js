@@ -45,6 +45,9 @@ const InputFiltro = style.input`
     height: 23px;
     outline: none;
     color: white;
+    :focus {
+        opacity: 1;
+    }
     
 
 `
