@@ -97,9 +97,9 @@ export default class Filtro extends React.Component{
 
                     <Coluna>
                         <Titulo>Ordenação</Titulo>
-                        <Ordenacao id="ordenacao">
-                            <option value="crescente">Crescente</option>
-                            <option value="descrescente">Descrescente</option>
+                        <Ordenacao id="ordenacao" onChange={this.props.onChangeSelect}>
+                            <option value="Crescente">Crescente</option>
+                            <option value="Descrescente">Descrescente</option>
                         </Ordenacao>
                     
                     </Coluna>
