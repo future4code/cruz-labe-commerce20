@@ -45,6 +45,9 @@ const InputFiltro = style.input`
     height: 23px;
     outline: none;
     color: white;
+    :focus {
+        opacity: 1;
+    }
     
 
 `
@@ -70,8 +73,11 @@ const Ordenacao = style.select`
 
 export default class Filtro extends React.Component{
 
+
+    
+
     render(){
-        
+
         return (
 
         <div>
@@ -79,31 +85,28 @@ export default class Filtro extends React.Component{
                 <Colunas>
                     <Coluna>
                         <Titulo>Viagem</Titulo>
-                        <InputFiltro type="text" placeholder="Busque por nome" id="buscaNome" />
+                        <InputFiltro type="text" placeholder="Busque por nome" id="buscaNome" onChange={this.props.onChangeViagem}/>
                     </Coluna>
                         
                     <Coluna>
                         <Titulo>Valor mín.</Titulo>
-                        <InputFiltro type="text" placeholder="Ex. 1000,00" id="buscaNome" />
+                        <InputFiltro onChange={this.props.onChangeValorMin} type="text" placeholder="Ex. 1000" id="buscaNome" />
                     </Coluna>
 
                     <Coluna>
                         <Titulo>Valor máx.</Titulo>
-                        <InputFiltro type="text" placeholder="Ex. 1000,00" id="buscaNome"/>
+                        <InputFiltro onChange={this.props.onChangeValorMax} type="text" placeholder="Ex. 1000" id="buscaNome"/>
                     </Coluna>
 
                     <Coluna>
                         <Titulo>Ordenação</Titulo>
-                        <Ordenacao id="ordenacao">
-                            <option value="crescente">Crescente</option>
-                            <option value="descrescente">Descrescente</option>
+                        <Ordenacao id="ordenacao" onChange={this.props.onChangeSelect}>
+                            <option value="Crescente">Crescente</option>
+                            <option value="Descrescente">Descrescente</option>
                         </Ordenacao>
                     
                     </Coluna>
                 </Colunas>
-
-
-
             </BoxFiltro> 
         </div>
 

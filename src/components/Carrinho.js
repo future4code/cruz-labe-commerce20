@@ -138,12 +138,17 @@ const FinalizarCompra = style.button`
     justify-content: center;
     margin-top: 40px;
 `
-
+const CarrinhoVazio = style.p`
+    color: black;
+    font: normal normal normal 20px/36px Raleway;    
+    text-align: center;
+    opaciy: 0.5;
+`
 export default class Carrinho extends React.Component {
     pegarValorTotal = () => {
         let valorTotal = 0
 
-        for(let produto of this.props.produtoNoCarrinho){
+        for(let produto of this.props.produtosNoCarrinho){
             valorTotal += produto.precoProduto * produto.quantidade
         }
         return valorTotal
@@ -168,31 +173,31 @@ export default class Carrinho extends React.Component {
                 </LinhaTitulo>
 
                 <LinhaProdutos>
-                    <InfosProdutos>
-                        <Coluna1>
-                            <Titulos>Map Array</Titulos>
-                            <BotaoAdicionar>Adicionar Ticket</BotaoAdicionar> 
-                        </Coluna1>
-
-                        <Coluna2>
-                            <Titulos>{this.props.produtoNoCarrinho.map((produto)=>{
-                                return (<div>
-                                    {produto}
-                                </div>
-                            )})}
-                                
-                            </Titulos>
-                            <BotaoRemover
-                            onClick={()=>this.props.removerProdutoNoCarrinho(this.props.removerProdutoNoCarrinho)}
-                            ><IconeRemover src={lixo}></IconeRemover></BotaoRemover> 
-                        </Coluna2>
-
-                    </InfosProdutos>
+                    {this.props.produtosNoCarrinho.length == 0 ? (
+                        <CarrinhoVazio>Seu carrinho está vazio</CarrinhoVazio>
+                    ) :
+                        this.props.produtosNoCarrinho.map(produto => (
+                            <InfosProdutos>
+                            <Coluna1>
+                                <Titulos>{produto.nomeProduto}</Titulos>
+                                <BotaoAdicionar onClick={()=>this.props.AddProdutoNoCarrinho(produto.id)}>Adicionar Ticket</BotaoAdicionar> 
+                            </Coluna1>
+    
+                            <Coluna2>
+                                <Titulos>{produto.quantidade}</Titulos>
+                                <BotaoRemover
+                                onClick={()=>this.props.removerProdutoNoCarrinho(produto.id)}
+                                ><IconeRemover src={lixo}></IconeRemover></BotaoRemover> 
+                            </Coluna2>
+                        </InfosProdutos>
+    
+                        ))
+                    }
                 </LinhaProdutos>
 
                 <BoxValorTotal>
                     <ValorTotal>Valor Total</ValorTotal>
-                    <Valor>R${this.pegarValorTotal()}0.000,00</Valor>
+                    <Valor>R${this.pegarValorTotal()}</Valor>
                 </BoxValorTotal>
 
                 <FinalizarCompra>Finalizar Compra</FinalizarCompra>

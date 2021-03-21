@@ -23,7 +23,7 @@ const DivBox = style.div`
 const Imagem = style.img`
     width: 85%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
 `
 
 const Titulo = style.h3`
@@ -67,11 +67,9 @@ const Botao = style.button`
 export default class Produtos extends React.Component{
 
     render(){
-    //  const  produto = this.props.produto  
+        //  const  produto = this.props.produto  
         return (
-
         <div style={{display:'flex', justifyContent: 'space-between', flexFlow: 'row wrap', marginRight: '50px', marginLeft: '1px'}}>
-           
             {this.props.planeta.map(produto => (
                 <DivBox>
                     <Imagem src={produto.imagem}/>
