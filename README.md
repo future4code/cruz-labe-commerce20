@@ -1,1 +1,1 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+![image](https://user-images.githubusercontent.com/77981874/111922543-30d6ee00-8a79-11eb-8605-3f68131a9309.png)
