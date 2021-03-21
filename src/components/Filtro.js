@@ -73,8 +73,11 @@ const Ordenacao = style.select`
 
 export default class Filtro extends React.Component{
 
+
+    
+
     render(){
-        
+
         return (
 
         <div>
@@ -82,17 +85,17 @@ export default class Filtro extends React.Component{
                 <Colunas>
                     <Coluna>
                         <Titulo>Viagem</Titulo>
-                        <InputFiltro type="text" placeholder="Busque por nome" id="buscaNome" />
+                        <InputFiltro type="text" placeholder="Busque por nome" id="buscaNome" onChange={this.props.onChangeViagem}/>
                     </Coluna>
                         
                     <Coluna>
                         <Titulo>Valor mín.</Titulo>
-                        <InputFiltro type="text" placeholder="Ex. 1000,00" id="buscaNome" />
+                        <InputFiltro onChange={this.props.onChangeValorMin} type="text" placeholder="Ex. 1000" id="buscaNome" />
                     </Coluna>
 
                     <Coluna>
                         <Titulo>Valor máx.</Titulo>
-                        <InputFiltro type="text" placeholder="Ex. 1000,00" id="buscaNome"/>
+                        <InputFiltro onChange={this.props.onChangeValorMax} type="text" placeholder="Ex. 1000" id="buscaNome"/>
                     </Coluna>
 
                     <Coluna>
@@ -104,9 +107,6 @@ export default class Filtro extends React.Component{
                     
                     </Coluna>
                 </Colunas>
-
-
-
             </BoxFiltro> 
         </div>
 

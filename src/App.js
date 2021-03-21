@@ -66,7 +66,41 @@ state = {
     imagem: Saturno
     
     },
-  ]  
+  ],
+  listaEstatica:  [
+    {
+    id: 1,
+    nomeProduto: 'Marte',
+    descricao: 'Lorem Ipson bla bla',
+    precoProduto: 30000,
+    imagem: Marte
+    
+  },
+  {
+    id: 2,
+    nomeProduto: 'Venus',
+    descricao: 'Lorem Ipson bla bla',
+    precoProduto: 20000,
+    imagem: Venus
+    
+  },
+  {
+    id: 3,
+    nomeProduto: 'Jupiter',
+    descricao: 'Lorem Ipson bla bla',
+    precoProduto: 10000,
+    imagem: Jupiter
+    
+  },
+  {
+    id: 4,
+    nomeProduto: 'Saturno',
+    descricao: 'Lorem Ipson bla bla',
+    precoProduto: 100000,
+    imagem: Saturno
+    
+    },
+  ]
 }
 
 componentDidMount() {
@@ -90,6 +124,42 @@ onChangeSelect = (event) => {
     this.ordenacao()
   })
 
+}
+
+onChangeValorMin = (event) => {
+  if(event.target.value != '') {
+    this.setState({
+      listaDeProdutos:this.state.listaDeProdutos.filter((produto) => produto.precoProduto >= event.target.value)
+    })
+  } else {
+    this.setState({
+      listaDeProdutos: this.state.listaEstatica
+    })
+}
+}
+
+onChangeValorMax = (event) => {
+  if(event.target.value != '' && event.target.value >= 10000) {
+    this.setState({
+      listaDeProdutos:this.state.listaDeProdutos.filter((produto) => produto.precoProduto <= event.target.value)
+    })
+  } else {
+    this.setState({
+      listaDeProdutos: this.state.listaEstatica
+    })
+}
+}
+
+onChangeViagem = (event) => {
+  if(event.target.value != '') {
+    this.setState({
+      listaDeProdutos:this.state.listaDeProdutos.filter((produto) => (produto.nomeProduto.toLowerCase()).includes(event.target.value.toLowerCase()))
+    })
+  } else {
+      this.setState({
+        listaDeProdutos: this.state.listaEstatica
+      })
+  }
 }
 
 AddProdutoNoCarrinho = (produtoId) =>{
@@ -132,7 +202,7 @@ AddProdutoNoCarrinho = (produtoId) =>{
   return (
     <div>
         <Banner/>
-        <Container><Filtro onChangeSelect={this.onChangeSelect}/></Container>
+        <Container><Filtro onChangeValorMin={this.onChangeValorMin} onChangeValorMax={this.onChangeValorMax} onChangeSelect={this.onChangeSelect} onChangeViagem={this.onChangeViagem}/></Container>
         <Container>
           <Coluna1><Produtos AddProdutoNoCarrinho={this.AddProdutoNoCarrinho} planeta={this.state.listaDeProdutos}/></Coluna1>
           <Coluna2><Carrinho produtosNoCarrinho={this.state.produtosNoCarrinho} removerProdutoNoCarrinho={this.removerProdutoNoCarrinho} AddProdutoNoCarrinho={this.AddProdutoNoCarrinho}/></Coluna2>
