@@ -2,6 +2,7 @@ import React from 'react'
 import style from 'styled-components'
 import lixo from '../assets/img/lixo.png'
 
+
 const DivCarrinho = style.div`
     min-height: 390px;
     width: 100%; 
@@ -139,7 +140,14 @@ const FinalizarCompra = style.button`
 `
 
 export default class Carrinho extends React.Component {
+    pegarValorTotal = () => {
+        let valorTotal = 0
 
+        for(let produto of this.props.produtoNoCarrinho){
+            valorTotal += produto.precoProduto * produto.quantidade
+        }
+        return valorTotal
+    }
     
     render(){
         
@@ -167,8 +175,16 @@ export default class Carrinho extends React.Component {
                         </Coluna1>
 
                         <Coluna2>
-                            <Titulos>Map</Titulos>
-                            <BotaoRemover><IconeRemover src={lixo}></IconeRemover></BotaoRemover> 
+                            <Titulos>{this.props.produtoNoCarrinho.map((produto)=>{
+                                return (<div>
+                                    {produto}
+                                </div>
+                            )})}
+                                
+                            </Titulos>
+                            <BotaoRemover
+                            onClick={()=>this.props.removerProdutoNoCarrinho(this.props.removerProdutoNoCarrinho)}
+                            ><IconeRemover src={lixo}></IconeRemover></BotaoRemover> 
                         </Coluna2>
 
                     </InfosProdutos>
@@ -176,7 +192,7 @@ export default class Carrinho extends React.Component {
 
                 <BoxValorTotal>
                     <ValorTotal>Valor Total</ValorTotal>
-                    <Valor>R$0.000,00</Valor>
+                    <Valor>R${this.pegarValorTotal()}0.000,00</Valor>
                 </BoxValorTotal>
 
                 <FinalizarCompra>Finalizar Compra</FinalizarCompra>
