@@ -7,7 +7,7 @@ Acesse nosso site através do seguinte link: http://labspace-grupo20.surge.sh/
 <p>Todos filtros funcionam individualmente, o filtro de ordenação funciona com todos e o filtro de nome funciona concomitantemente a um filtro de valor min ou máx.<p>
 
 ### O que não funciona
-Os filtros de valores min e máx não funcionam entre si. 
+<p>Os filtros de valores min e máx não funcionam entre si.<p>
 
 ### Link Surge
-http://labspace-grupo20.surge.sh/
+<p>http://labspace-grupo20.surge.sh/<p>
